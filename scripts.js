@@ -11,6 +11,9 @@ function getVideo() {
       console.log(localMeidaStream);
       video.src = window.URL.createURL(localMediaStream);
       video.play();
+    })
+    .catch((err) => {
+      console.error(`OH NO!!!!`, err);
     });
 }
 
