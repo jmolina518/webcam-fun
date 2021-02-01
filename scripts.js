@@ -6,15 +6,22 @@ const snap = document.querySelector('.snap');
 
 function getVideo() {
   navigator.mediaDevices
-    .getUserMedia({ vide: true, audio: false })
+    .getUserMedia({ video: true, audio: false })
     .then((localMediaStream) => {
-      console.log(localMeidaStream);
-      video.src = window.URL.createURL(localMediaStream);
+      console.log(localMediaStream);
+      video.srcObject = localMediaStream;
       video.play();
     })
     .catch((err) => {
       console.error(`OH NO!!!!`, err);
     });
+}
+
+function paintToCanvas() {
+  const width = video.videoWidth;
+  const height = video.videoHeight;
+  canvas.width = width;
+  canvas.height = height;
 }
 
 getVideo();
